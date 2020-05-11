@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <title>Todoolean</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <header>
+            <h1>Todoolean</h1>
+        </header>
+
+        <main>
+            <input id="new-todo-input" type="text" placeholder="Inserisci nuovo ToDo">
+            <button id="new-todo-button"><i class="fas fa-plus"></i></button>
+
+            <ul class="todos"></ul>
+        </main>
+    </div>
+
+
+
+    <!-- Handlebars Template -->
+
+    <script id="todo-template" type="text/x-handlebars-template">
+        <li class="todo">
+            {{todo}}
+            <span class="remove" data-id="{{id}}"><i class="fas fa-minus"></i></span>
+        </li>
+    </script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
