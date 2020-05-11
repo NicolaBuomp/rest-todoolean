@@ -12,16 +12,16 @@
 <body>
 
     <div id="app">
-        <header>
-            <h1>Todoolean</h1>
-        </header>
 
-        <main>
-            <input id="new-todo-input" type="text" placeholder="Inserisci nuovo ToDo">
-            <button id="new-todo-button"><i class="fas fa-plus"></i></button>
+        <div class="container">
+            <main>
+                <input id="new-todo-input" type="text" placeholder="Cosa devo ricordarti ?">
+                <button id="new-todo-button">Add</button>
 
-            <ul class="todos"></ul>
-        </main>
+                <ul class="todos"></ul>
+            </main>
+        </div>
+        
     </div>
 
 
@@ -31,7 +31,7 @@
     <script id="todo-template" type="text/x-handlebars-template">
         <li class="todo">
             {{todo}}
-            <span class="remove" data-id="{{id}}"><i class="fas fa-minus"></i></span>
+            <span class="remove" data-id="{{id}}"><i class="far fa-trash-alt"></i></span>
         </li>
     </script>
 

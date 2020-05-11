@@ -3,6 +3,7 @@ $(document).ready(function () {
     var newTodoInput = $('#new-todo-input');
     var newTodoButton = $('#new-todo-button');
     var todosList = $('.todos');
+    var itemList = $('.todo');
 
     //API
     var apiUrl = 'http://157.230.17.132:3001/todos';
@@ -10,7 +11,7 @@ $(document).ready(function () {
     //Handlebars
     var source = $("#todo-template").html();
     var template = Handlebars.compile(source);
-
+    
     printAllTodos(apiUrl, template, todosList);
 
     // add item
@@ -31,9 +32,20 @@ $(document).ready(function () {
 
     $(document).on('click', '.remove', function () {
 
-        deleteTodo( $(this), apiUrl, template, todosList)
+        itemList.addClass('deleted');
+
+        setTimeout(() => {
+
+            deleteTodo( $(this), apiUrl, template, todosList);
+        }, 4000);
+
+        
 
     });
+
+    itemList.click(function(){
+        itemList.addClass('deleted');
+    })
 });
 
 // FUNCTION
@@ -59,7 +71,7 @@ function printAllTodos(apiUrl, template, todosList) {
                 }
 
                 var html = template(context);
-                todosList.append(html);
+                todosList.append(html).fadeIn('slow');;
 
 
             }
@@ -75,23 +87,28 @@ function createTodo(apiUrl, input, template, todosList) {
 
     var todoValue = input.val().trim();
 
-    $.ajax({
-        url: apiUrl,
-        method: 'POST',
-        data: {
-            text: todoValue,
-        },
+    if (todoValue !== ''){
 
-        success: function () {
-
-            printAllTodos(apiUrl, template, todosList);
-        },
-
-        error: function () {
-            console.log('Errore');
-
-        }
-    })
+        $.ajax({
+            url: apiUrl,
+            method: 'POST',
+            data: {
+                text: todoValue,
+            },
+    
+            success: function () {
+    
+                printAllTodos(apiUrl, template, todosList);
+            },
+    
+            error: function () {
+                console.log('Errore');
+    
+            }
+        })
+    } else {
+        alert ('Non puoi inserire un campo vuoto!')
+    }
 
     input.val('');
 };

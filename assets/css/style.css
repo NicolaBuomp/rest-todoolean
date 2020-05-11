@@ -10,35 +10,44 @@ body {
 
 header {
     margin-bottom: 30px;
+    font-size: 30px;
+    color: red;
 }
 
 #app {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
+}
+
+.container{
+    border-radius: 10px;
+    background-color: #AC193D;
+    height: auto;
+    width: 500px;
 }
 
 #new-todo-input{
     border: none;
-    border-bottom: 1px solid black;
-    padding: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
     height: 40px;
-    width: 230px;
+    width: 300px;
     font-size: 18px;
     transition: width 0.4s;
-}
-
-#new-todo-input:hover,
-#new-todo-input:focus{
-    width: 400px;
+    background-color: rgb(167, 58, 85);
 }
 
 #new-todo-button{
     border: none;
-    background-color: #fff;
+    background-color: rgb(141, 17, 48);
     cursor: pointer;
-    font-size: 18px;
+    height: 40px;
+    width: 50px;
+    font-size: 16px;
 }
 
 .todos {
@@ -47,17 +56,20 @@ header {
 }
 
 .todos .todo{
-    font-size: 20px;
+    background-color: #fff;
+    font-size: 18px;
     padding: 10px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
-}
-
-.todos .todo:last-child{
-    border: none;
+    transition: transform 0.4s;
 }
 
 .remove {
-    color: red;
+    color: rgb(255, 102, 0);
     cursor: pointer;
+}
+
+.deleted{
+    transform: translate(-3000px);
 }
