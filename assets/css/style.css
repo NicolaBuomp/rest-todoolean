@@ -62,7 +62,7 @@ header {
     margin: 10px;
     display: flex;
     justify-content: space-between;
-    transition: transform 0.4s;
+    transition: transform 0.7s;
 }
 
 .remove {

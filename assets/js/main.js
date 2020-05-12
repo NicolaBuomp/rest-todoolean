@@ -14,6 +14,8 @@ $(document).ready(function () {
     
     printAllTodos(apiUrl, template, todosList);
 
+    console.log(itemList);
+    
     // add item
     newTodoButton.click(function () {
 
@@ -32,14 +34,12 @@ $(document).ready(function () {
 
     $(document).on('click', '.remove', function () {
 
-        itemList.addClass('deleted');
-
+        $(this).parents('.todo').addClass('deleted');
+        
         setTimeout(() => {
 
             deleteTodo( $(this), apiUrl, template, todosList);
-        }, 4000);
-
-        
+        }, 500);
 
     });
 
